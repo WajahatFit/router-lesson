@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { fakeApi } from '../fakeAPI/api';
+import axios from 'axios';
 
 export default function Projects() {
   const [projects, setProjects] = useState(null);
@@ -8,9 +8,9 @@ export default function Projects() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fakeApi.getAllProjects();
-        // console.log(response.data)
-        setProjects(response.data);
+        const response = await axios.get('http://localhost:8000/api/v1/projects')
+        //console.log(response)
+        setProjects(response.data.data);
       } catch (error) {
         console.error(error)
       }
@@ -22,8 +22,8 @@ export default function Projects() {
     <div>
       <h3>Check out my projects:</h3>
       {!projects && <p>Loading</p>}
-      {projects && projects.map(elem => {
-        return <p key={elem._id}><Link to={`/projects/${elem._id}`}>{elem.title}</Link></p>
+      {projects && projects.map(project => {
+        return <p key={project._id}><Link to={`/projects/${project._id}`}>{project.title}</Link></p>
       })}
       <Outlet />
     </div>

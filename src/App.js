@@ -22,9 +22,8 @@ function App() {
           <Route path="products" element={<Products />} />
         </Route>
         <Route path="/contact" element={<Contact />} />
-        <Route path="/projects" element={<Projects />}>
-          <Route path=":projectId" element={<ProjectDetails />} />
-        </Route>
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<ProjectDetails />} />
         <Route path="/joke" element={<Joke />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
