@@ -6,6 +6,12 @@ import About from './views/About';
 import Products from './views/Products';
 import Company from './views/Company';
 import Navbar from './components/Navbar';
+import Projects from './views/Projects';
+import ProjectDetails from './components/ProjectDetails';
+import ErrorPage from './views/ErrorPage';
+import Joke from './views/Joke';
+import CreateProject from './views/CreateProject';
+import EditProject from './views/EditProject';
 
 function App() {
   return (
@@ -18,6 +24,12 @@ function App() {
           <Route path="products" element={<Products />} />
         </Route>
         <Route path="/contact" element={<Contact />} />
+        <Route path="/create" element={<CreateProject />} />
+        <Route path="/edit/:id" element={<EditProject />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<ProjectDetails />} />
+        <Route path="/joke" element={<Joke />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );
