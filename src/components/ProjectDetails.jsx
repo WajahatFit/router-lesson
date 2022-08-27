@@ -38,6 +38,7 @@ export default function ProjectDetails() {
           <h6>Project: {project.title}</h6>
           <p>Description: {project.description}</p>
           <button onClick={handleDelete}>Delete project</button>
+          <button onClick={() => navigate(`/edit/${id}`)}>Edit project</button>
         </div>)}
       {!project && <p>Project not found</p>}
     </div>

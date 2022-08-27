@@ -8,6 +8,7 @@ export default function Navbar() {
       <ul>
         <li><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/">Home</NavLink></li>
         <li><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/about">About</NavLink></li>
+        <li><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/create">Create project</NavLink></li>
         <li><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/contact">Contact</NavLink></li>
         <li><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/projects">Projects</NavLink></li>
         <li><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/joke">Joke</NavLink></li>
