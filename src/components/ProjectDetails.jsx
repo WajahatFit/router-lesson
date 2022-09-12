@@ -40,6 +40,7 @@ export default function ProjectDetails() {
         <div>
           <h6>Project: {project.title}</h6>
           <p>Description: {project.description}</p>
+          <img width="100px" src={project.imageUrl} alt={project.title} />
           <button onClick={handleDelete}>Delete project</button>
           <button onClick={() => navigate(`/edit/${id}`)}>Edit project</button>
         </div>)}

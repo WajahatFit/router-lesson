@@ -16,6 +16,7 @@ import EditProject from './views/EditProject';
 import Signup from './views/auth/Signup';
 import Login from './views/auth/Login';
 import IsPrivate from './components/IsPrivate';
+import Profile from './views/Profile';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<IsPrivate><Profile /></IsPrivate>}/>
         <Route path="/about" element={<About />}>
           <Route path="company" element={<Company />} />
           <Route path="products" element={<Products />} />
