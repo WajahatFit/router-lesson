@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export default function EditProject() {
   const navigate = useNavigate();
+
   const { id } = useParams();
   const [project, setProject] = useState(null);
 

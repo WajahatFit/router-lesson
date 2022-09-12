@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export default function ProjectDetails() {
   // const params = useParams(); then use with params.id
   const { id } = useParams();
+  const storedToken = localStorage.getItem('authToken');
   const navigate = useNavigate();
   const [project, setProject] = useState(null);
 
@@ -23,7 +25,8 @@ export default function ProjectDetails() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/v1/projects/${id}`);
+      await axios.delete(`http://localhost:8000/api/v1/projects/${id}`, { headers: { Authorization: `Bearer ${storedToken}` } });
+      toast.success('Project deleted successfully')
       navigate('/');
     } catch (error) {
       console.error(error);
@@ -37,6 +40,7 @@ export default function ProjectDetails() {
         <div>
           <h6>Project: {project.title}</h6>
           <p>Description: {project.description}</p>
+          <img width="100px" src={project.imageUrl} alt={project.title} />
           <button onClick={handleDelete}>Delete project</button>
           <button onClick={() => navigate(`/edit/${id}`)}>Edit project</button>
         </div>)}
